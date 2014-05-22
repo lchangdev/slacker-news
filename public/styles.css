@@ -20,6 +20,36 @@ ul li {
   font-size: 8pt;
 }
 
+/* Links */
+
+.name-link:visited,
+.name-link:link,
+.nav-btn:link,
+.nav-btn:visited,
+.title-link:link,
+.more-link,
+.login-link {
+  color: black;
+}
+
+.nav-btn:active {
+  color: white;
+}
+
+.title-link:visited,
+.author:link,
+.author:visited,
+.comments:link,
+.comments:visited,
+.more-link {
+  color: #828282;
+}
+
+.author:hover,
+.comments:hover {
+  text-decoration: underline;
+}
+
 /* Header */
 
 .header-container,
@@ -27,19 +57,27 @@ ul li {
 #name,
 #login,
 #nav-bar {
-  height: 23px;
+  height: 22px;
   float: left;
   background-color: #ff6600;
 }
 
 .header-container {
   width: 100%;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 #logo {
   width: 2%;
 }
 
+#logo img {
+  position: relative;
+  border: 1px solid white;
+  float: right;
+  padding-top: 2px;
+}
 #name {
   width: 10%;
 }
@@ -85,21 +123,18 @@ ul li {
 }
 
 #newsfeed ol {
-  font-size: 10pt;
+  font-size: 9pt;
 }
 
 #newsfeed ol li {
   margin-bottom: 5px;
+  font-size: 8pt;
 }
 .website {
-  font-size: 8pt;
-  color: #828282;
-}
-
-.linetwo {
   font-size: 7pt;
   color: #828282;
 }
+
 
 /* Footer */
 
@@ -125,31 +160,29 @@ footer {
   padding-top: 1%
 }
 
-/* Links */
+.footer-container table {
+  padding-top: 1%;
+}
+.search input {
+  border: 1px solid #ff6600;
+}
+/* articles.erb */
 
-.name-link:visited,
-.name-link:link,
-.nav-btn:link,
-.nav-btn:visited,
-.title-link:link,
-.more-link {
-  color: black;
+.form {
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
-.nav-btn:active {
-  color: white;
+#title,
+#url,
+#description {
+  border: 1px solid #ff6600;
+  width: 400px;
+  font-size: 8pt;
 }
 
-.title-link:visited,
-.author:link,
-.author:visited,
-.comments:link,
-.comments:visited,
-.more-link {
-  color: #828282;
-}
-
-.author:hover,
-.comments:hover {
-  text-decoration: underline;
+#form-container {
+  padding-top: 5%;
+  text-align: center;
+  font-size: 8pt;
 }

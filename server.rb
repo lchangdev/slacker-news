@@ -1,16 +1,20 @@
 require 'sinatra'
 require 'shotgun'
 require 'CSV'
+require 'pry'
 
-get '/' do
+def load_data(csv)
   master_data = []
-
   CSV.foreach(csv, headers: true, header_converters: :symbol) do |row|
     master_data << row
   end
-
   master_data
+end
 
+get '/' do
+
+  @articles = load_data('articles_data.csv')
+# binding.pry
   erb :index
 end
 
