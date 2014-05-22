@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Slacker News</title>
+
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class = "body-container"> <!--may be unnecessary -->
+        <div class = "header-container">
+            <div id = "logo">
+                <img src="server.gif">
+            </div>
+            <div id = "name">
+                <table>
+                    <td><a href="#" class="name-link">Hacker News<a></td>
+                </table>
+            </div>
+            <div id = "nav-bar">
+                <table>
+                    <td><a href="#" class="nav-btn">new</a> | </td>
+                    <td><a href="#" class="nav-btn">comments</a> | </td>
+                    <td><a href="#" class="nav-btn">ask</a> | </td>
+                    <td><a href="#" class="nav-btn">jobs</a> | </td>
+                    <td><a href="#" class="nav-btn">submit</a></td>
+                </table>
+            </div>
+            <div id = "login">
+                <table>
+                    <td><a href="#">login</a></td>
+                </table>
+            </div>
+        </div>
+
+        <div id = "newsfeed">
+            <ol>
+                <li>
+                    <a class = "title-link" href="https://www.firebase.com/blog/2013-08-15-firebase-leaves-beta-today.html">Firebase Leaves Beta Today </a>
+                    <span class = "website">(firebase.com)</span>
+                    <br>
+                    <span class = "linetwo">63 points by
+                    <a class = "author" href="#">lyime</a> 56 minutes ago | <a class = "comments" href="#">17 comments</a></span>
+                </li>
+                <li>
+                    <a class = "title-link" href="http://fitzgeraldnick.com/weblog/50/">Destructuring Assignment in ECMAScript 6 </a>
+                    <span class = "website">(fitzgeraldnick.com)</span>
+                    <br>
+                    <span class = "linetwo">40 points by
+                    <a class = "author" href="#">mnemonik</a>  49 minutes ago | <a class = "comments" href="#">5 comments</a></span>
+                </li>
+                <li>
+                    <a class = "title-link" href="https://stripe.com/blog/introducing-stripe-uk">Introducing Stripe UK </a>
+                    <span class = "website">(stripe.com)</span>
+                    <br>
+                    <span class = "linetwo">230 points by
+                    <a class = "author" href="#">woodrow</a> 4 hours ago | <a class = "comments" href="#">118 comments</a></span>
+                </li>
+                <li>
+                    <a class = "title-link" href="http://ragnard.github.io/2013/08/12/datomic-in-the-browser.html">Datomic in the browser</a>
+                    <span class = "website">(regnard.github.io)</span>
+                    <br>
+                    <span class = "linetwo">47 points by
+                    <a class = "author" href="#">brucehauman</a> 2 hours ago | <a class = "comments" href="#">1 comments</a></span>
+                </li>
+                 <li>
+                    <a class = "title-link" href="https://developers.facebook.com/blog/post/2013/08/15/summary-of-the-august-13th-app-outage/">Facebook App OUtage Postmortem </a>
+                    <span class = "website">(facebook.com)</span>
+                    <br>
+                    <span class = "linetwo">15 points by
+                    <a class = "author" href="#">lacker</a> 32 minutes ago | <a class = "comments" href="#">2 comments</a></span>
+                </li>
+                <li>
+                    <a class = "title-link" href="http://techcrunch.com/2013/08/15/inks-new-mobile-framework-lets-ios-apps-talk-to-each-other-share-data-you-know-like-on-android/">Ink (YC S12) Releases new iOS Layer That Allows Apps to Interact, Share Data</a>
+                    <span class = "website">(techcrunch.com)</span>
+                    <br>
+                    <span class = "linetwo">19 points by
+                    <a class = "author" href="#">lyime</a> 1 hour ago | <a class = "comments" href="#">13 comments</a></span>
+                </li>
+                <li>
+                    <a class = "title-link" href="http://www.lettersofnote.com/2013/07/its-real-thing.html?m=1">It's the real thing</a>
+                    <span class = "website">(lettersofnote.com)</span>
+                    <br>
+                    <span class = "linetwo">75 points by
+                    <a class = "author" href="#">lyime</a> 3 hours ago | <a class = "comments" href="#">44 comments</a></span>
+                </li>
+                <li>
+                    <a class = "title-link" href="http://firstround.com/article/The-anatomy-of-the-perfect-technical-interview-from-a-former-Amazon-VP">The anatomy of the perfect technical interview from a former Amazon VP (</a>
+                    <span class = "website">(firstround.com)</span>
+                    <br>
+                    <span class = "linetwo">55 points by
+                    <a class = "author" href="#">lyime</a> 3 hours ago | <a class = "comments" href="#">26 comments</a></span>
+                </li>
+                <li>
+                    <a class = "title-link" href="http://www.washingtonpost.com/blogs/ask-the-post/wp/2013/08/15/editors-note/">The Washington Post Web site was hacked today </a>
+                    <span class = "website">(washingtonpost.com)</span>
+                    <br>
+                    <span class = "linetwo">34 points by
+                    <a class = "author" href="#">woodrow</a> 2 hours ago | <a class = "comments" href="#">26 comments</a></span>
+                </li>
+                <li>
+                    <a class = "title-link" href="http://stackoverflow.com/questions/16159203/why-does-this-java-program-terminate-despite-that-appears-that-it-shouldt-and">Why does this Java program terminate despite appearing that it shouldn't?</a>
+                    <span class = "website">(stackoverflow.com)</span>
+                    <br>
+                    <span class = "linetwo">88 points by
+                    <a class = "author" href="#">woodrow</a> 3 hours ago | <a class = "comments" href="#">83 comments</a></span>
+                </li>
+            </ol>
+            <ul>
+                <li><a class="more-link" href="#">More</a></li>
+            </ul>
+        </div>
+
+        <footer>
+            <div class = "footer-container">
+                <table>
+                    <td><a href="#" class="nav-btn">Lists</a> | </td>
+                    <td><a href="#" class="nav-btn">RSS</a> | </td>
+                    <td><a href="#" class="nav-btn">Bookmarklet</a> | </td>
+                    <td><a href="#" class="nav-btn">Guidelines</a> | </td>
+                    <td><a href="#" class="nav-btn">FAQ</a></td>
+                    <td><a href="#" class="nav-btn">DMCA</a> | </td>
+                    <td><a href="#" class="nav-btn">News news</a> | </td>
+                    <td><a href="#" class="nav-btn">Feature Requests</a> | </td>
+                    <td><a href="#" class="nav-btn">Bugs</a> | </td>
+                    <td><a href="#" class="nav-btn">Y Combinator</a></td>
+                    <td><a href="#" class="nav-btn">Apply</a> | </td>
+                    <td><a href="#" class="nav-btn">Library</a></td>
+                </table>
+                <form class="search">
+                  <label >Search:</label>
+                  <input type="search" name="search">
+                </form>
+            </div>
+        </footer>
+
+    </div>
+
+  </body>
+</html>
