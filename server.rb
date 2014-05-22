@@ -12,14 +12,11 @@ def load_data(csv)
 end
 
 get '/' do
-
   @articles = load_data('articles_data.csv')
-# binding.pry
   erb :index
 end
 
 get '/articles' do
-
   erb :articles
 end
 
