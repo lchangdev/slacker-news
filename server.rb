@@ -1,9 +1,8 @@
 require 'sinatra'
-require 'shotgun'
-# require 'CSV'
-require 'pry'
+# require 'shotgun'
 require 'redis'
 require 'json'
+# require 'CSV'
 
 
 def get_connection
