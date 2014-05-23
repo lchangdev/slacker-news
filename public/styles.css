@@ -69,17 +69,18 @@ ul li {
 }
 
 #logo {
-  width: 2%;
+  width: 5%;
 }
 
 #logo img {
   position: relative;
   border: 1px solid white;
-  float: right;
   padding-top: 2px;
+  float: right;
 }
+
 #name {
-  width: 10%;
+  width: 15%;
 }
 
 #name table {
@@ -94,7 +95,7 @@ ul li {
 }
 
 #nav-bar {
-  width: 78%;
+  width: 70%;
 }
 
 #nav-bar table {
