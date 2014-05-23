@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'shotgun'
-require 'CSV'
+# require 'CSV'
 require 'pry'
 require 'redis'
 require 'json'
@@ -34,20 +34,21 @@ def save_article(url, title, description)
   redis.rpush("slacker:articles", article.to_json)
 end
 
-def load_data(csv)
-  master_data = []
-  CSV.foreach(csv, headers: true, header_converters: :symbol) do |row|
-    master_data << row
-  end
-  master_data
-end
+# def load_data(csv)
+#   master_data = []
+#   CSV.foreach(csv, headers: true, header_converters: :symbol) do |row|
+#     master_data << row
+#   end
+#   master_data
+# end
 
 get '/' do
-  @articles = load_data('articles_data.csv')
+  @articles = find_articles
   erb :index
 end
 
 get '/articles' do
+
   erb :articles
 end
 
@@ -56,9 +57,10 @@ post '/articles' do
   url = params["url"]
   description = params["description"]
 
-  CSV.open('articles_data.csv', 'a') do |csv|
-    csv << [title, url, description]
-  end
+  # CSV.open('articles_data.csv', 'a') do |csv|
+  #   csv << [title, url, description]
+  # end
+  save_article(url, title, description)
 
   redirect '/'
 
