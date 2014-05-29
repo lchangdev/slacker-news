@@ -1,66 +1,85 @@
 require 'sinatra'
-# require 'shotgun'
-require 'redis'
-require 'json'
-# require 'CSV'
+require 'pg'
+require 'shotgun'
+require 'pry'
 
+def db_connection
+  begin
+    connection = PG.connect(dbname: 'articles')
 
-def get_connection
-  if ENV.has_key?("REDISCLOUD_URL")
-    Redis.new(url: ENV["REDISCLOUD_URL"])
-  else
-    Redis.new
+    yield(connection)
+
+  ensure
+    connection.close
   end
 end
 
 def find_articles
-  redis = get_connection
-  serialized_articles = redis.lrange("slacker:articles", 0, -1)
+  query = 'SELECT * FROM articles'
 
-  articles = []
+  db_connection do |conn|
+    articles = conn.exec(query)
+  end
+end
 
-  serialized_articles.each do |article|
-    articles << JSON.parse(article, symbolize_names: true)
+def save_articles(title, url, description)
+  query = "INSERT INTO articles (title, url, description, created_at)
+          VALUES ($1, $2, $3, NOW())"
+  db_connection do |conn|
+    new_article = conn.exec_params(query, [title, url, description])
+  end
+end
+
+def find_comments(article_id)
+
+  id = params[:article_id]
+  query = "SELECT comments.comment, comments.created_at AS time, articles.title
+        FROM comments
+          JOIN articles ON articles.id = comments.article_id
+        WHERE articles.id = #{id}"
+  db_connection do |conn|
+    comments = conn.exec(query).to_a
   end
 
-  articles
 end
 
-def save_article(url, title, description)
-  article = { url: url, title: title, description: description }
-
-  redis = get_connection
-  redis.rpush("slacker:articles", article.to_json)
+def save_comments(comment)
+  #join articles and comments @ both ids
+  id = params[:article_id]
+  query = "INSERT INTO comments (article_id, comment, created_at)
+          VALUES (#{id}, $1, NOW())"
+  db_connection do |conn|
+    new_comment = conn.exec_params(query, [comment])
+  end
 end
 
-# def load_data(csv)
-#   master_data = []
-#   CSV.foreach(csv, headers: true, header_converters: :symbol) do |row|
-#     master_data << row
-#   end
-#   master_data
-# end
-
-get '/' do
-  @articles = find_articles
-  erb :index
-end
+# GET REQUESTS
 
 get '/articles' do
+  @articles = find_articles
 
   erb :articles
 end
 
-post '/articles' do
-  title = params["title"]
-  url = params["url"]
-  description = params["description"]
+get '/articles/:article_id/comments' do
+  @comments = find_comments(params[:article_id])
 
-  # CSV.open('articles_data.csv', 'a') do |csv|
-  #   csv << [title, url, description]
-  # end
-  save_article(url, title, description)
+  erb :comments
+end
 
-  redirect '/'
+get '/new' do
+
+  erb :new
+end
+
+post '/new' do
+  save_articles(params["title"], params["url"], params["description"])
+
+
+  redirect '/articles'
+end
+
+post '/articles/:article_id/comments' do
+  save_comments(params[:article_id], params["comments"])
 
 end

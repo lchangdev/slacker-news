@@ -3,4 +3,6 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'sinatra'
-gem 'redis'
+gem 'pg'
+gem 'shotgun'
+gem 'pry'

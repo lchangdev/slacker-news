@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Slacker News</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <div class = "body-container">
+
+<!-- Header -->
+
+    <div class = "header-container">
+        <div id = "logo">
+            <img src="server.gif">
+        </div>
+        <div id = "name">
+            <table>
+                <td><a href="/articles" class="name-link">Hacker News<a></td>
+            </table>
+        </div>
+        <div id = "nav-bar">
+            <table>
+                <td><a href="#" class="nav-btn">new</a> | </td>
+                <td><a href="#" class="nav-btn">comments</a> | </td>
+                <td><a href="#" class="nav-btn">ask</a> | </td>
+                <td><a href="#" class="nav-btn">jobs</a> | </td>
+                <td><a href="/new" class="nav-btn">submit</a></td>
+            </table>
+        </div>
+        <div id = "login">
+            <table>
+                <td><a class="login-link" href="#">login</a></td>
+            </table>
+        </div>
+    </div>
+
+<!-- Form -->
+
+    <div id = "form-container">
+        <h3>Post your comment here for</h3>
+
+        <form name="submit" class="form" action="/articles/:article_id/comments" method="post">
+            <label for="comment">Comment:</label>
+            <input type="text" id="comment" name="comment" placeholder="comment" required/>
+            <br>
+            <br>
+            <input type="submit" value="submit" />
+        </form>
+
+        <% @comments.each do |comment| %>
+            <ol>
+                <li>
+                    <%= comment["comment"] %>
+                    <%= comment["time"] %>
+                </li>
+            </ol>
+        <% end %>
+    </div>
+
+<!-- Footer -->
+
+    <footer>
+        <div class = "footer-container">
+            <table>
+                <td><a href="#" class="nav-btn">Lists</a> | </td>
+                <td><a href="#" class="nav-btn">RSS</a> | </td>
+                <td><a href="#" class="nav-btn">Bookmarklet</a> | </td>
+                <td><a href="#" class="nav-btn">Guidelines</a> | </td>
+                <td><a href="#" class="nav-btn">FAQ</a></td>
+                <td><a href="#" class="nav-btn">DMCA</a> | </td>
+                <td><a href="#" class="nav-btn">News news</a> | </td>
+                <td><a href="#" class="nav-btn">Feature Requests</a> | </td>
+                <td><a href="#" class="nav-btn">Bugs</a> | </td>
+                <td><a href="#" class="nav-btn">Y Combinator</a></td>
+                <td><a href="#" class="nav-btn">Apply</a> | </td>
+                <td><a href="#" class="nav-btn">Library</a></td>
+            </table>
+            <form class="search">
+              <label >Search:</label>
+              <input type="search" name="search">
+            </form>
+        </div>
+    </footer>
+  </div>
+
+</body>
+</html>
+
+

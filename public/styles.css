@@ -136,6 +136,9 @@ ul li {
   color: #828282;
 }
 
+.time {
+  font-size: 7pt;
+}
 
 /* Footer */
 
@@ -168,7 +171,7 @@ footer {
   border: 1px solid #ff6600;
 }
 
-/* articles.erb */
+/* new.erb */
 
 .form {
   padding-top: 5%;
